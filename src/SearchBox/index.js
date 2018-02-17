@@ -9,7 +9,7 @@ class SearchBox extends Component {
   }
 
   render() {
-    return <input type="text" onKeyPress={this.props.onKeyPress} />;
+    return <input type="text" onKeyUp={this.props.onKeyUp} />;
   }
 }
 

@@ -7,8 +7,7 @@ class Schedule extends Component {
     this.state = {
       isEventsLoaded: false,
       error: null,
-      events: [],
-      selected: []
+      events: []
     };
   }
 
