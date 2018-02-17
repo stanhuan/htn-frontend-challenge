@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Tag from '../Tag';
+import Moment from 'react-moment';
 
 class EventItem extends Component {
   render() {
@@ -10,8 +11,8 @@ class EventItem extends Component {
         <p>{event.title}</p>
         <p>{event.description}</p>
         <p>
-          <time dateTime={event.start_time}>{event.start_time}</time> -{' '}
-          <time dateTime={event.end_time}>{event.end_time}</time>
+          <Moment format="dddd h:mma">{event.start_time}</Moment> -{' '}
+          <Moment format="dddd h:mma">{event.end_time}</Moment>
         </p>
         <p>{event.location}</p>
         <ul>

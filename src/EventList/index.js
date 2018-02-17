@@ -114,6 +114,10 @@ class EventList extends Component {
       );
     }
 
+    eventsToDisplay.sort(function(a, b) {
+      return a.start_date < b.start_date && a.end_date < b.end_date;
+    });
+
     let results = <div>No items to display :(</div>;
     if (eventsToDisplay.length > 0) {
       results = eventsToDisplay.map(item => (
