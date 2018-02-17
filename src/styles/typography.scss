@@ -1,5 +1,10 @@
 @import 'shared.scss';
 
+html {
+  font-family: $alt-font-family;
+  color: $body-color;
+}
+
 a {
   font-family: $alt-font-family;
   color: $navigation-color;
@@ -30,4 +35,18 @@ h1 {
   font-size: $h2-font-size;
   color: $title-color;
   margin: 0;
+}
+
+.secondary-link {
+  background: none !important;
+  color: $demphasized-color;
+  font-size: $body-font-size;
+  border: none;
+  padding: 0 !important;
+  cursor: pointer;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
 }

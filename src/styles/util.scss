@@ -11,3 +11,15 @@
   border: none;
   margin-left: 0;
 }
+
+.inline-block {
+  display: inline-block;
+}
+
+.gutter-bottom--double {
+  margin-bottom: $spacing-unit*2;
+}
+
+.margin-left {
+  margin-left: $spacing-unit;
+}

@@ -134,9 +134,16 @@ class EventList extends Component {
 
     return (
       <div className="EventList">
-        <button onClick={this.handleScheduleClick.bind(this)}>
-          My Schedule
+        <h1 className="inline-block">
+          {this.state.viewAll ? 'All Events' : 'Selected Events'}
+        </h1>
+        <button
+          className="secondary-link margin-left hover-effect"
+          onClick={this.handleScheduleClick.bind(this)}
+        >
+          {!this.state.viewAll ? 'All Events' : 'Selected Events'}
         </button>
+        <hr className="accent-seperator gutter-bottom--double" />
         <SearchBox onKeyUp={this.handleKeyUp.bind(this)} />
         {Object.keys(this.tagInfo).map(key => (
           <Tag

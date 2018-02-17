@@ -1,3 +1,8 @@
+html {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  color: #525e63;
+}
+
 a {
   font-family: 'Open Sans', Helvetica, sans-serif;
   color: #303030;
@@ -30,6 +35,19 @@ h1 {
   margin: 0;
 }
 
+.secondary-link {
+  background: none !important;
+  color: #9b9b9b;
+  font-size: 18px;
+  border: none;
+  padding: 0 !important;
+  cursor: pointer;
+}
+.secondary-link:focus {
+  border: none;
+  outline: none;
+}
+
 html {
   background-color: #f1fdff;
 }
@@ -48,4 +66,16 @@ main {
   background-color: #00c4ff;
   border: none;
   margin-left: 0;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.gutter-bottom--double {
+  margin-bottom: 30px;
+}
+
+.margin-left {
+  margin-left: 15px;
 }
