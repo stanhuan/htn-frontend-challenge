@@ -26,9 +26,10 @@ class EventList extends Component {
 
     if (this.state.searchText) {
       eventsToDisplay = eventsToDisplay.filter(item => {
-        let searchString = `${item.title} ${item.description} ${
-          item.location
-        }`.toLowerCase();
+        let searchString = `${item.title} ${item.location} `.toLowerCase();
+        if (item.description) {
+          searchString.concat(item.description);
+        }
 
         return searchString.indexOf(this.state.searchText.toLowerCase()) > -1;
       });
