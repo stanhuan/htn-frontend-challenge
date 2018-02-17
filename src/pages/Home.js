@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import Countdown from '../Countdown';
 
 class Home extends Component {
   render() {
-    return <h1>Home</h1>;
+    const targetDate = new Date();
+    targetDate.setHours(targetDate.getHours() + 2);
+
+    return <Countdown targetDate={targetDate} />;
   }
 }
 
