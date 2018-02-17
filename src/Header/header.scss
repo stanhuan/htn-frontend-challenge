@@ -1,0 +1,27 @@
+@import '../styles/shared.scss';
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3.3em;
+  padding: 0.8em 2em;
+  background-color: $white-color;
+  box-sizing: border-box;
+  box-shadow: $box-shadow;
+
+  img {
+    height: 100%;
+  }
+
+  ul {
+    list-style: none;
+    display: inline-block;
+    vertical-align: middle;
+
+    li {
+      display: inline-block;
+      padding-left: $spacing-unit;
+    }
+  }
+}

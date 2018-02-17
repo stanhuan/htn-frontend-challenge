@@ -1,0 +1,8 @@
+@import 'shared.scss';
+
+a {
+  font-family: $alt-font-family;
+  color: $navigation-color;
+  text-decoration: none;
+  font-size: $field-font-size;
+}
