@@ -7,15 +7,15 @@ class Header extends Component {
   render() {
     return (
       <nav>
-        <img className="hoverEffect" src={logo} alt="Logo" />
+        <img className="hover-effect" src={logo} alt="Logo" />
         <ul>
           <li>
-            <Link className="hoverEffect" to="/">
+            <Link className="hover-effect" to="/">
               Home
             </Link>
           </li>
           <li>
-            <Link className="hoverEffect" to="/schedule">
+            <Link className="hover-effect" to="/schedule">
               Schedule
             </Link>
           </li>

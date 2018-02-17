@@ -1,0 +1,13 @@
+@import 'shared.scss';
+
+.hover-effect:hover {
+  opacity: 0.75;
+}
+
+.accent-seperator {
+  height: 0.5em;
+  width: 2.5em;
+  background-color: $accent-color;
+  border: none;
+  margin-left: 0;
+}

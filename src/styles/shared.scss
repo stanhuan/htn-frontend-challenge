@@ -20,7 +20,7 @@ $box-shadow:        0 2px 4px rgba(0,0,0,0.1);
 
 $spacing-unit:      15px !default;
 
-$h1-font-szie:      36px;
+$h1-font-size:      36px;
 $h2-font-size:      24px;
 $body-font-size:    18px;
 $field-font-size:   16px;
@@ -54,8 +54,4 @@ $bp-xl:            1200px !default;
   @media screen and (min-width: $device) {
     @content;
   }
-}
-
-.hoverEffect:hover {
-  opacity: 0.75;
 }

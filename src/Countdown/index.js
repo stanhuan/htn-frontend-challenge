@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Digit from '../Digit';
 
 class Countdown extends Component {
   constructor(props) {
@@ -45,9 +46,11 @@ class Countdown extends Component {
 
     return (
       <div>
-        <span>{time['hour']} : </span>
-        <span>{time['minute']} : </span>
-        <span>{time['second']}</span>
+        <h1>We can't wait to meet you</h1>
+        <hr className="accent-seperator" />
+        {Object.keys(time).map(key => (
+          <Digit key={key} denomination={key} value={time[key]} />
+        ))}
       </div>
     );
   }

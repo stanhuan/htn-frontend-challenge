@@ -6,3 +6,28 @@ a {
   text-decoration: none;
   font-size: $field-font-size;
 }
+
+h1 {
+  font-family: $main-font-family;
+  font-weight: bold;
+  font-size: $h1-font-size;
+  color: $title-color;
+}
+
+.big-emphasis {
+  font-family: $main-font-family;
+  font-weight: bold;
+  font-size: 12vw;
+  color: $title-color;
+  margin: 0;
+}
+
+.kicker {
+  font-family: $alt-font-family;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  font-size: $h2-font-size;
+  color: $title-color;
+  margin: 0;
+}
