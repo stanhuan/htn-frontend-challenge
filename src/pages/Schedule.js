@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EventItem from '../EventItem';
+import EventList from '../EventList';
 
 class Schedule extends Component {
   constructor(props) {
@@ -38,9 +38,7 @@ class Schedule extends Component {
     } else if (!isEventsLoaded) {
       return <div>Loading...</div>;
     } else {
-      return (
-        <ol>{events.map(item => <EventItem key={item.id} event={item} />)}</ol>
-      );
+      return <EventList events={events} />;
     }
   }
 }
