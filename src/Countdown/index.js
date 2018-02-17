@@ -7,7 +7,14 @@ class Countdown extends Component {
       targetDate: this.props.targetDate,
       secs: (this.props.targetDate - Date.now()) / 1000
     };
+  }
+
+  componentDidMount() {
     this.timer = setInterval(this.countdown.bind(this), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 
   getIntervalObject(secs) {
