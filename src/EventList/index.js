@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import EventItem from '../EventItem';
 import SearchBox from '../SearchBox';
 import Tag from '../Tag';
+var moment = require('moment');
 
 class EventList extends Component {
   constructor(props) {
@@ -21,6 +22,9 @@ class EventList extends Component {
       food: 'Food',
       meetup: 'Meetup'
     };
+    this.events = this.props.events.sort(function(a, b) {
+      return moment.utc(a.start_time).diff(moment.utc(b.start_time));
+    });
   }
 
   handleKeyUp(e) {
@@ -91,7 +95,7 @@ class EventList extends Component {
   }
 
   render() {
-    let eventsToDisplay = this.props.events;
+    let eventsToDisplay = this.events;
 
     if (!this.state.viewAll) {
       eventsToDisplay = this.filterBySchedule(
@@ -113,10 +117,6 @@ class EventList extends Component {
         this.state.selectedTags
       );
     }
-
-    eventsToDisplay.sort(function(a, b) {
-      return a.start_date < b.start_date && a.end_date < b.end_date;
-    });
 
     let results = <div>No items to display :(</div>;
     if (eventsToDisplay.length > 0) {
