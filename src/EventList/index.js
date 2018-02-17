@@ -44,6 +44,28 @@ class EventList extends Component {
     }
   }
 
+  filterByText(list, text) {
+    return list.filter(item => {
+      let searchString = `${item.title} ${item.location} `.toLowerCase();
+      if (item.description) {
+        searchString.concat(item.description);
+      }
+
+      return searchString.indexOf(text.toLowerCase()) > -1;
+    });
+  }
+
+  filterByTags(list, tags) {
+    return list.filter(item => {
+      for (var i = 0; i < item.tags.length; i++) {
+        if (tags.includes(item.tags[i])) {
+          return true;
+        }
+      }
+      return false;
+    });
+  }
+
   render() {
     let eventsToDisplay;
 
@@ -52,26 +74,17 @@ class EventList extends Component {
     }
 
     if (this.state.searchText) {
-      eventsToDisplay = eventsToDisplay.filter(item => {
-        let searchString = `${item.title} ${item.location} `.toLowerCase();
-        if (item.description) {
-          searchString.concat(item.description);
-        }
-
-        return searchString.indexOf(this.state.searchText.toLowerCase()) > -1;
-      });
+      eventsToDisplay = this.filterByText(
+        eventsToDisplay,
+        this.state.searchText
+      );
     }
 
-    var selectedTags = this.state.selectedTags;
-    if (selectedTags.length > 0) {
-      eventsToDisplay = eventsToDisplay.filter(item => {
-        for (var i = 0; i < item.tags.length; i++) {
-          if (selectedTags.includes(item.tags[i])) {
-            return true;
-          }
-        }
-        return false;
-      });
+    if (this.state.selectedTags.length > 0) {
+      eventsToDisplay = this.filterByTags(
+        eventsToDisplay,
+        this.state.selectedTags
+      );
     }
 
     let results = <div>No items to display :(</div>;
