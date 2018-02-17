@@ -35,7 +35,7 @@ class Schedule extends Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isEventsLoaded) {
-      return <div>Loading...</div>;
+      return <div>Loading Events...</div>;
     } else {
       return <EventList events={events} />;
     }

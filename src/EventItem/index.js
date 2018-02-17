@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Tag from '../Tag';
 
 class EventItem extends Component {
   constructor(props) {
@@ -19,7 +20,11 @@ class EventItem extends Component {
           <time dateTime={event.end_time}>{event.end_time}</time>
         </p>
         <p>{event.location}</p>
-        <ul>{event.tags.map(item => <li key={item}>{item}</li>)}</ul>
+        <ul>
+          {event.tags.map(item => (
+            <Tag key={item} id={item} tag={this.props.tagInfo[item]} />
+          ))}
+        </ul>
       </div>
     );
   }
