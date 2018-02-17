@@ -27,20 +27,38 @@ class EventList extends Component {
     this.setState({ searchText: e.target.value });
   }
 
-  handleClick(e) {
-    let selectedTag = e.target.getAttribute('id');
-    let selectedTags = this.state.selectedTags;
+  handleTagClick(e) {
+    this.setState({
+      selectedTags: this.toggleArray(
+        this.state.selectedTags,
+        e.target.getAttribute('id')
+      )
+    });
+  }
 
-    if (selectedTags.includes(selectedTag)) {
-      this.setState({
-        selectedTags: selectedTags
-          .slice(0, selectedTags.indexOf(selectedTag))
-          .concat(selectedTags.slice(selectedTags.indexOf(selectedTag) + 1))
-      });
+  handleEventItemClick(e) {
+    this.setState({
+      selectedEvents: this.toggleArray(
+        this.state.selectedEvents,
+        Number(e.target.getAttribute('id'))
+      )
+    });
+  }
+
+  handleScheduleClick(e) {
+    this.setState({
+      viewAll: !this.state.viewAll
+    });
+  }
+
+  toggleArray(list, item) {
+    // Adds item to the list if it does not exist already, removes otherwise
+    if (list.includes(item)) {
+      return list
+        .slice(0, list.indexOf(item))
+        .concat(list.slice(list.indexOf(item) + 1));
     } else {
-      this.setState({
-        selectedTags: [].concat(selectedTags, selectedTag)
-      });
+      return [].concat(list, item);
     }
   }
 
@@ -66,11 +84,20 @@ class EventList extends Component {
     });
   }
 
-  render() {
-    let eventsToDisplay;
+  filterBySchedule(list, selected) {
+    return list.filter(item => {
+      return selected.includes(item.id);
+    });
+  }
 
-    if (this.state.viewAll) {
-      eventsToDisplay = this.props.events;
+  render() {
+    let eventsToDisplay = this.props.events;
+
+    if (!this.state.viewAll) {
+      eventsToDisplay = this.filterBySchedule(
+        eventsToDisplay,
+        this.state.selectedEvents
+      );
     }
 
     if (this.state.searchText) {
@@ -90,12 +117,22 @@ class EventList extends Component {
     let results = <div>No items to display :(</div>;
     if (eventsToDisplay.length > 0) {
       results = eventsToDisplay.map(item => (
-        <EventItem key={item.id} event={item} tagInfo={this.tagInfo} />
+        <EventItem
+          onClick={this.handleEventItemClick.bind(this)}
+          selected={this.state.selectedEvents.includes(item.id)}
+          key={item.id}
+          id={item.id}
+          event={item}
+          tagInfo={this.tagInfo}
+        />
       ));
     }
 
     return (
       <div className="EventList">
+        <button onClick={this.handleScheduleClick.bind(this)}>
+          My Schedule
+        </button>
         <SearchBox onKeyUp={this.handleKeyUp.bind(this)} />
         {Object.keys(this.tagInfo).map(key => (
           <Tag
@@ -103,7 +140,7 @@ class EventList extends Component {
             id={key}
             tag={this.tagInfo[key]}
             selectable={true}
-            onClick={this.handleClick.bind(this)}
+            onClick={this.handleTagClick.bind(this)}
             selected={this.state.selectedTags.includes(key)}
           />
         ))}

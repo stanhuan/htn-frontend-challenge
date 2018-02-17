@@ -2,15 +2,9 @@ import React, { Component } from 'react';
 import Tag from '../Tag';
 
 class EventItem extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      event: this.props.event
-    };
-  }
-
   render() {
-    let event = this.state.event;
+    let event = this.props.event;
+
     return (
       <div className="event-item">
         <p>{event.title}</p>
@@ -25,6 +19,9 @@ class EventItem extends Component {
             <Tag key={item} id={item} tag={this.props.tagInfo[item]} />
           ))}
         </ul>
+        <button onClick={this.props.onClick} id={this.props.id}>
+          {this.props.selected ? '-' : '+'}
+        </button>
       </div>
     );
   }
