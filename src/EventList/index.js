@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import EventItem from '../EventItem';
 import SearchBox from '../SearchBox';
 import Tag from '../Tag';
+import './eventlist.css';
 var moment = require('moment');
 
 class EventList extends Component {
@@ -51,6 +52,7 @@ class EventList extends Component {
 
   handleScheduleClick(e) {
     this.setState({
+      selectedTags: [],
       viewAll: !this.state.viewAll
     });
   }
@@ -135,27 +137,32 @@ class EventList extends Component {
     return (
       <div className="EventList">
         <h1 className="inline-block">
-          {this.state.viewAll ? 'All Events' : 'Selected Events'}
+          {this.state.viewAll ? 'All Events' : 'My Events'}
         </h1>
         <button
           className="secondary-link margin-left hover-effect"
           onClick={this.handleScheduleClick.bind(this)}
         >
-          {!this.state.viewAll ? 'All Events' : 'Selected Events'}
+          {this.state.viewAll ? 'My Events' : 'All Events'}
         </button>
         <hr className="accent-seperator gutter-bottom--double" />
-        <SearchBox onKeyUp={this.handleKeyUp.bind(this)} />
-        {Object.keys(this.tagInfo).map(key => (
-          <Tag
-            key={key}
-            id={key}
-            tag={this.tagInfo[key]}
-            selectable={true}
-            onClick={this.handleTagClick.bind(this)}
-            selected={this.state.selectedTags.includes(key)}
-          />
-        ))}
-        <ol>{results}</ol>
+        <SearchBox
+          onKeyUp={this.handleKeyUp.bind(this)}
+          value={this.state.searchText}
+        />
+        <div className="tag-list">
+          {Object.keys(this.tagInfo).map(key => (
+            <Tag
+              key={key}
+              id={key}
+              tag={this.tagInfo[key]}
+              selectable={true}
+              onClick={this.handleTagClick.bind(this)}
+              selected={this.state.selectedTags.includes(key)}
+            />
+          ))}
+        </div>
+        <ol class="event-list">{results}</ol>
       </div>
     );
   }

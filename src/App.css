@@ -1,6 +1,7 @@
 html {
   font-family: 'Open Sans', Helvetica, sans-serif;
   color: #525e63;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -12,7 +13,7 @@ a {
 
 h1 {
   font-family: 'Poppins', Arial, sans-serif;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 36px;
   color: #374146;
 }
@@ -46,6 +47,20 @@ h1 {
 .secondary-link:focus {
   border: none;
   outline: none;
+}
+
+.body-text {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-size: 18px;
+  color: #525e63;
+  margin: 0.5em 0;
+}
+
+.field-text {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-size: 16px;
+  color: #9b9b9b;
+  margin: 0.5em 0;
 }
 
 html {

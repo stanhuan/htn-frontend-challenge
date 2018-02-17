@@ -3,6 +3,7 @@
 html {
   font-family: $alt-font-family;
   color: $body-color;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -14,7 +15,7 @@ a {
 
 h1 {
   font-family: $main-font-family;
-  font-weight: bold;
+  font-weight: 500;
   font-size: $h1-font-size;
   color: $title-color;
 }
@@ -49,4 +50,18 @@ h1 {
     border: none;
     outline: none;
   }
+}
+
+.body-text {
+  font-family: $alt-font-family;
+  font-size: $body-font-size;
+  color: $body-color;
+  margin: 0.5em 0;
+}
+
+.field-text {
+  font-family: $alt-font-family;
+  font-size: $field-font-size;
+  color: $demphasized-color;
+  margin: 0.5em 0;
 }

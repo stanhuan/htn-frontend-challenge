@@ -33,9 +33,21 @@ class Schedule extends Component {
   render() {
     const { error, isEventsLoaded, events } = this.state;
     if (error) {
-      return <div>Error: {error.message}</div>;
+      return (
+        <div>
+          <h1 className="inline-block">
+            Please try again | Error: {error.message}
+          </h1>
+          <hr className="accent-seperator gutter-bottom--double" />
+        </div>
+      );
     } else if (!isEventsLoaded) {
-      return <div>Loading Events...</div>;
+      return (
+        <div>
+          <h1 className="inline-block">Loading Events...</h1>
+          <hr className="accent-seperator gutter-bottom--double" />
+        </div>
+      );
     } else {
       return <EventList events={events} />;
     }

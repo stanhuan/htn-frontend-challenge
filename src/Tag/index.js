@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './tag.css';
 
 class Tag extends Component {
   render() {
@@ -6,7 +7,9 @@ class Tag extends Component {
       return (
         <button
           onClick={this.props.onClick}
-          className={'tag'.concat(this.props.selected ? ' selected' : '')}
+          className={'tag hover-effect '
+            .concat(this.props.id)
+            .concat(this.props.selected ? ' selected' : '')}
           id={this.props.id}
         >
           {this.props.tag}
@@ -14,7 +17,10 @@ class Tag extends Component {
       );
     } else {
       return (
-        <span className="tag" id={this.props.id}>
+        <span
+          className={'tag selected '.concat(this.props.id)}
+          id={this.props.id}
+        >
           {this.props.tag}
         </span>
       );

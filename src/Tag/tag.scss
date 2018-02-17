@@ -1,0 +1,94 @@
+@import '../styles/shared.scss';
+
+$food-color: #34b5f8;
+$meetup-color: #94ca41;
+$lightning-challenge-color: #2aceb0;
+$talk-color: #de405b;
+$workshop-color: #bc66cd;
+$judging-color: #ce962a;
+$logistics-color: #832ace;
+
+.tag {
+  font-size: $small-font-size;
+  padding: 0.25em 0.5em;
+  background: none;
+  border-radius: 30px;
+  margin-right: 5px;
+  margin-bottom: 3px;
+  border: 1px solid;
+
+  &.selected {
+    color: $white-color !important;
+  }
+
+  &.hover-effect {
+    cursor: pointer;
+  }
+
+  &.lightning_challenge {
+    border-color: $lightning-challenge-color;
+    color: $lightning-challenge-color;
+
+    &.selected {
+      background-color: $lightning-challenge-color;
+    }
+  }
+
+  &.talk {
+    border-color: $talk-color;
+    color: $talk-color;
+
+    &.selected {
+      background-color: $talk-color;
+    }
+  }
+
+  &.logistics {
+    border-color: $logistics-color;
+    color: $logistics-color;
+
+    &.selected {
+      background-color: $logistics-color;
+    }
+  }
+
+  &.workshop {
+    border-color: $workshop-color;
+    color: $workshop-color;
+
+    &.selected {
+      background-color: $workshop-color;
+    }
+  }
+
+  &.judging {
+    border-color: $judging-color;
+    color: $judging-color;
+
+    &.selected {
+      background-color: $judging-color;
+    }
+  }
+
+  &.food {
+    border-color: $food-color;
+    color: $food-color;
+
+    &.selected {
+      background-color: $food-color;
+    }
+  }
+
+  &.meetup {
+    border-color: $meetup-color;
+    color: $meetup-color;
+
+    &.selected {
+      background-color: $meetup-color;
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
