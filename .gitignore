@@ -22,9 +22,11 @@ nbproject
 Thumbs.db
 tags
 build
+.eslintrc
 
 # NPM packages folder.
 node_modules/
+.vscode/
 
 # Brunch folder for temporary files.
 tmp/
