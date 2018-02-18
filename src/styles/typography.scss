@@ -4,6 +4,7 @@ html {
   font-family: $alt-font-family;
   color: $body-color;
   text-rendering: optimizeLegibility;
+  word-wrap: break-word;
 }
 
 a {
@@ -64,4 +65,8 @@ h1 {
   font-size: $field-font-size;
   color: $demphasized-color;
   margin: 0.5em 0;
+}
+
+.accent-color {
+  color: $accent-color;
 }

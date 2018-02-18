@@ -2,6 +2,7 @@ html {
   font-family: 'Open Sans', Helvetica, sans-serif;
   color: #525e63;
   text-rendering: optimizeLegibility;
+  word-wrap: break-word;
 }
 
 a {
@@ -63,12 +64,19 @@ h1 {
   margin: 0.5em 0;
 }
 
+.accent-color {
+  color: #00c4ff;
+}
+
 html {
   background-color: #f1fdff;
 }
 
 main {
   padding: 2em 2em;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hover-effect:hover {

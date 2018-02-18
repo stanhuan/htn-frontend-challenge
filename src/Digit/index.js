@@ -5,7 +5,7 @@ import './digit.css';
 class Digit extends Component {
   render() {
     let denomination = this.props.denomination;
-    if (this.props.value > 1) {
+    if (this.props.value !== 1) {
       denomination = this.props.denomination.concat('s');
     }
 

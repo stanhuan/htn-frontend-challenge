@@ -11,16 +11,37 @@
     border: none;
   }
 
-  p {
+  .info p, .info a {
     margin-right: $spacing-unit;
+    line-height: 1.2;
   }
 
   ul {
     padding: 5px 0 0 0;
     margin: 0;
+    text-overflow: none;
   }
 
   button {
-    background: none !important;
+    background: none;
+    height: 50px !important;
+    width: 50px !important;
+    border-radius: 50%;
+    border: 1px solid $accent-color;
+    color: $accent-color;
+    cursor: pointer;
+    font-size: $h2-font-size;
+    flex-shrink: 0;
+    padding: 0;
+    margin: 0;
+
+    &:focus {
+      outline: none;
+    }
+
+    &.clicked {
+      color: $white-color;
+      background-color: $accent-color;
+    }
   }
 }

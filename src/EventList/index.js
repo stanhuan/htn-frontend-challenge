@@ -28,6 +28,15 @@ class EventList extends Component {
     });
   }
 
+  clearFilters() {
+    this.setState({
+      searchText: null,
+      selectedTags: [],
+      selectedEvents: [],
+      viewAll: true
+    });
+  }
+
   handleKeyUp(e) {
     this.setState({ searchText: e.target.value });
   }
@@ -120,7 +129,18 @@ class EventList extends Component {
       );
     }
 
-    let results = <div>No items to display :(</div>;
+    let results = (
+      <div className="no-results">
+        <h1>:(</h1>
+        No results to display.{' '}
+        <button
+          onClick={this.clearFilters.bind(this)}
+          className="accent-color secondary-link hoverEffect"
+        >
+          Try clearing your filters?
+        </button>
+      </div>
+    );
     if (eventsToDisplay.length > 0) {
       results = eventsToDisplay.map(item => (
         <EventItem
@@ -162,7 +182,7 @@ class EventList extends Component {
             />
           ))}
         </div>
-        <ol class="event-list">{results}</ol>
+        <ol className="event-list">{results}</ol>
       </div>
     );
   }
