@@ -27,22 +27,7 @@ $field-font-size:   16px;
 $small-font-size:   12px;
 
 // Width of the content area
-$content-width:    800px !default;
-
-$on-palm:          600px !default;
-$on-laptop:        800px !default;
-
-// Small devices (landscape phones, 576px and up)
-$bp-s:             576px !default;
-
-// Medium devices (tablets, 768px and up)
-$bp-m:             768px !default;
-
-// Large devices (desktops, 992px and up)
-$bp-l:              992px !default;
-
-// Extra large devices (large desktops, 1200px and up)
-$bp-xl:            1200px !default;
+$content-width:    1000px !default;
 
 // Use media queries like this:
 // @include media-query($on-palm) {

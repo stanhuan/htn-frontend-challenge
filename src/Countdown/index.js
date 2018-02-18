@@ -48,9 +48,11 @@ class Countdown extends Component {
       <div>
         <h1>We can't wait to meet you</h1>
         <hr className="accent-seperator" />
-        {Object.keys(time).map(key => (
-          <Digit key={key} denomination={key} value={time[key]} />
-        ))}
+        <div className="digit-wrapper">
+          {Object.keys(time).map(key => (
+            <Digit key={key} denomination={key} value={time[key]} />
+          ))}
+        </div>
       </div>
     );
   }

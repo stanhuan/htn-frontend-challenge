@@ -11,9 +11,9 @@ class Digit extends Component {
 
     return (
       <div className="digit">
+        <img className="bg" src={gear} alt="" />
         <p className="big-emphasis">{this.props.value}</p>
         <p className="kicker">{denomination}</p>
-        {/*<img src={gear} alt=''/>*/}
       </div>
     );
   }

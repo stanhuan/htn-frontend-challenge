@@ -27,16 +27,24 @@ h1 {
   font-size: 12vw;
   color: $title-color;
   margin: 0;
+
+  @include media-query($content-width) {
+    font-size: 12em;
+  }
 }
 
 .kicker {
   font-family: $alt-font-family;
   font-weight: normal;
   text-transform: uppercase;
-  letter-spacing: 10px;
-  font-size: $h2-font-size;
+  letter-spacing: 0.5em;
+  font-size: 2vw;
   color: $title-color;
   margin: 0;
+
+  @include media-query($content-width) {
+    font-size: 2em;
+  }
 }
 
 .secondary-link {

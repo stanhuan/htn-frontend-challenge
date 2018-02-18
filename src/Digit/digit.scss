@@ -1,3 +1,55 @@
+@import '../styles/shared.scss';
+
 .digit {
   display: inline-block;
+  text-align: center;
+  position: relative;
+  flex-shrink: 0;
+  width: 33%;
+  margin-left: auto;
+  margin-right: auto;
+
+  .bg {
+    opacity: 0.5;
+    position: absolute;
+    width: 110%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -100;
+    animation: 0.99995s spin 0.00005s ease-in-out infinite;
+  }
+}
+
+.digit:nth-child(odd) {
+  .bg {
+    transform: translate(-50%, -50%) rotate(70deg);
+    animation: 0.99995s spinReverse 0.00005s ease-in-out infinite;
+  }
+}
+
+.digit-wrapper {
+  align-items: center;
+  justify-content: space-between;
+  margin-top: $spacing-unit * 5;
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+}
+
+@keyframes spinReverse {
+  from {
+    transform: translate(-50%, -50%) rotate(70deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(25deg);
+  }
 }

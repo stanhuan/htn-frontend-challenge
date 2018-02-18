@@ -175,11 +175,11 @@ class EventList extends Component {
 
     return (
       <div className="EventList">
-        <h1 className="inline-block">
+        <h1 className="inline-block margin-right">
           {this.state.viewAll ? 'All Events' : 'My Events'}
         </h1>
         <button
-          className="secondary-link margin-left hover-effect"
+          className="secondary-link hover-effect"
           onClick={this.handleScheduleClick.bind(this)}
         >
           {this.state.viewAll ? 'My Events' : 'All Events'}
