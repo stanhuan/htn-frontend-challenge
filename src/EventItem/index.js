@@ -26,7 +26,7 @@ class EventItem extends Component {
 
       if (this.isValidUrl(event.description)) {
         description = (
-          <a class="accent-color" target="_blank" href={event.description}>
+          <a className="accent-color" target="_blank" href={event.description}>
             More information
           </a>
         );

@@ -14,6 +14,7 @@ class EventList extends Component {
       selectedEvents: [],
       viewAll: true
     };
+
     this.tagInfo = {
       lightning_challenge: 'Lightning Challenge',
       talk: 'Talk',
@@ -28,11 +29,21 @@ class EventList extends Component {
     });
   }
 
+  componentDidMount() {
+    let eventCookieInfo = JSON.parse(localStorage.getItem('selectedEvents'));
+    console.log(eventCookieInfo);
+
+    if (eventCookieInfo) {
+      this.setState({
+        selectedEvents: eventCookieInfo
+      });
+    }
+  }
+
   clearFilters() {
     this.setState({
       searchText: null,
       selectedTags: [],
-      selectedEvents: [],
       viewAll: true
     });
   }
@@ -51,12 +62,20 @@ class EventList extends Component {
   }
 
   handleEventItemClick(e) {
-    this.setState({
-      selectedEvents: this.toggleArray(
-        this.state.selectedEvents,
-        Number(e.target.getAttribute('id'))
-      )
-    });
+    this.setState(
+      {
+        selectedEvents: this.toggleArray(
+          this.state.selectedEvents,
+          Number(e.target.getAttribute('id'))
+        )
+      },
+      () => {
+        localStorage.setItem(
+          'selectedEvents',
+          JSON.stringify(this.state.selectedEvents)
+        );
+      }
+    );
   }
 
   handleScheduleClick(e) {
