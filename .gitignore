@@ -21,6 +21,7 @@
 nbproject
 Thumbs.db
 tags
+build
 
 # NPM packages folder.
 node_modules/

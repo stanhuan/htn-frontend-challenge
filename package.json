@@ -2,7 +2,9 @@
   "name": "htn",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://stanhuan.com/htn-frontend-challenge",
   "dependencies": {
+    "gh-pages": "^1.1.0",
     "husky": "^0.14.3",
     "lint-staged": "^6.1.0",
     "moment": "^2.20.1",
@@ -24,6 +26,8 @@
     ]
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
