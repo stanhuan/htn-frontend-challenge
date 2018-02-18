@@ -44,7 +44,7 @@ class Schedule extends Component {
     } else if (!isEventsLoaded) {
       return (
         <div>
-          <h1 className="inline-block">Loading Events...</h1>
+          <h1 className="inline-block">Loading events...</h1>
           <hr className="accent-seperator gutter-bottom--double" />
         </div>
       );

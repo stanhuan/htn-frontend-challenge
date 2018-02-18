@@ -31,7 +31,6 @@ class EventList extends Component {
 
   componentDidMount() {
     let eventCookieInfo = JSON.parse(localStorage.getItem('selectedEvents'));
-    console.log(eventCookieInfo);
 
     if (eventCookieInfo) {
       this.setState({
@@ -151,7 +150,7 @@ class EventList extends Component {
     let results = (
       <div className="no-results">
         <h1>:(</h1>
-        No results to display.{' '}
+        <p>No results to display. </p>
         <button
           onClick={this.clearFilters.bind(this)}
           className="accent-color secondary-link hoverEffect"
@@ -176,13 +175,13 @@ class EventList extends Component {
     return (
       <div className="EventList">
         <h1 className="inline-block margin-right">
-          {this.state.viewAll ? 'All Events' : 'My Events'}
+          {this.state.viewAll ? 'All events' : 'My events'}
         </h1>
         <button
-          className="secondary-link hover-effect"
+          className="secondary-link hover-effect accent-color"
           onClick={this.handleScheduleClick.bind(this)}
         >
-          {this.state.viewAll ? 'My Events' : 'All Events'}
+          {this.state.viewAll ? 'My events' : 'All events'}
         </button>
         <hr className="accent-seperator gutter-bottom--double" />
         <SearchBox
